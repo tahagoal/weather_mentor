@@ -1,16 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { AppWeather } from './app.landing';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppWeather],
+  imports:[ BrowserModule,HttpModule],
+  bootstrap: [AppWeather]
 })
 export class AppModule { }
