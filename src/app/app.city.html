@@ -1,0 +1,179 @@
+    <body>
+
+        <div id="wrapper">
+
+            <div class="site-content" style="background-color: #E6E7E8;">
+		      <div class="site-header" style="background-color: #0C1828">
+		        <div class="container">
+		          <!-- Default snippet for navigation -->
+		        </div>
+		      </div> <!-- .site-header -->
+
+		      <div id="page-wrapper" >
+		      	
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 pl-30">
+                        <div class="panel panel-theme-1">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-thermometer-empty fa-5x" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{current_condition[0].temp_C}}<sup>o</sup>C</div>
+                                        <div>Temperature</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 pr-30">
+                        <div class="panel panel-theme-2">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-sun-o fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{current_condition[0].visibility}}</div>
+                                        <div>Visibilty</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 pl-30">
+                        <div class="panel panel-theme-3">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-tint fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{current_condition[0].humidity}}</div>
+                                        <div>Humidity</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 pr-30">
+                        <div class="panel panel-theme-4">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-mixcloud fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{current_condition[0].windspeedKmph}}</div>
+                                        <div>Wind Speed</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-bar-chart-o fa-fw"></i> Weekly Climate
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div id="week-chart"></div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                        
+                    </div>
+                    <!-- /.col-lg-8 -->
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-thermometer-empty fa-fw"></i> Weather in <strong>{{country_city}}</strong>
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                            	<div class="table-responsive">
+				                <table class="table table-bordered table-hover">
+				                  <tbody>
+				                    <tr>
+				                      <td><a>Cloud Cover</a></td>
+				                      <td><span class="label label-theme-1">{{current_condition[0].cloudcover}}</span></td>
+				                    </tr>
+				                    <tr>
+				                      <td><a>Pressure</a></td>
+				                      <td><span class="label label-theme-2">{{current_condition[0].pressure}} hpa</span></td>
+				                    </tr>
+				                    <tr>
+				                      <td><a>Sunrise</a></td>
+				                      <td><span class="label label-theme-3">{{weather_data[0].astronomy[0].sunrise}}</span></td>
+				                    </tr>
+				                    <tr>
+				                      <td><a>Sunset</a></td>
+				                      <td><span class="label label-theme-4">{{weather_data[0].astronomy[0].sunset}}</span></td>
+				                    </tr>
+				                    <tr>
+				                      <td><a>Moonrise</a></td>
+				                      <td><span class="label label-theme-5">{{weather_data[0].astronomy[0].moonrise}}</span></td>
+				                    </tr>
+				                    <tr>
+				                      <td><a>Moonset</a></td>
+				                      <td><span class="label label-theme-6">{{weather_data[0].astronomy[0].moonset}}</span></td>
+				                    </tr>
+				                  </tbody>
+				                </table>
+				              </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-4 -->
+                    <div class="col-md-12">
+                    	<div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-bar-chart-o fa-fw"></i> Temperature per year
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body" id="temp-chart">
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+		      </div>
+
+            </div>
+            <!-- /#page-wrapper -->
+
+         <footer class="site-footer">
+	        <div class="container">
+	          <div class="row">
+	            <div class="col-md-8">
+	              <form action="#" class="subscribe-form">
+	                <input type="text" placeholder="Enter your email to subscribe...">
+	                <input type="submit" value="Subscribe">
+	              </form>
+	            </div>
+	            <div class="col-md-3 col-md-offset-1">
+	              <div class="social-links">
+	                <a href="https://www.facebook.com/ahmed.m.taha2"><i class="fa fa-facebook"></i></a>
+	                <a href="https://twitter.com/ahmed____taha"><i class="fa fa-twitter"></i></a>
+	                <a href="https://plus.google.com/u/0/101695559350893510250"><i class="fa fa-google-plus"></i></a>
+	                <a href="https://www.linkedin.com/in/tahagoal/"><i class="fa fa-linkedin"></i></a>
+	              </div>
+	            </div>
+	          </div>
+
+        	</div>
+      	</footer> <!-- .site-footer -->
+
+        </div>
+        <!-- /#wrapper -->
+    </body>
